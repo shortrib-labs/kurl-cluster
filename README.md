@@ -36,7 +36,7 @@ of the file is documented in the file
 Copy the redacted version to `params.yaml` and edit as apporpriate 
 to connect to your cluster, specify the size of your node, etc.
 
-## Creating the Cluster
+## Creating a Node
 
 The cluster is created using [Terraform](https://terraform.io), but
 there's `Makefile` to make basic operations easier. Creating a
@@ -48,6 +48,15 @@ $ make node
 
 The output at the end will show the IP address for your node so
 that you can connect to it.
+
+By default, the node is created as a single node cluster with
+the latest kURL installer. To use a custom kURL installer, 
+including a KOTS install with an embedded cluster, set the 
+variable `kurl_script`, for example, to use the latest k3s:
+
+```shell
+$ make node kurl_script="curl https://kurl.sh/k3s | sudo bash"
+```
 
 ## Destroying the Cluster
 
