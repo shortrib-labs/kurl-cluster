@@ -90,14 +90,14 @@ resource "vsphere_virtual_machine" "node" {
     "isolation.tools.SetGUIOptions.enable" = true
   }
 
-   provisioner "remote-exec" { 
-     inline = [ 
-       var.kurl_script, 
-       "echo '# limit who can use SSH\nAllowGroups ssher' | sudo tee /etc/ssh/sshd_config.d/02-limit-to-ssher.conf"
-     ] 
+  provisioner "remote-exec" { 
+    inline = [ 
+      var.kurl_script, 
+      "echo '# limit who can use SSH\nAllowGroups ssher' | sudo tee /etc/ssh/sshd_config.d/02-limit-to-ssher.conf"
+    ] 
     connection {
       user = "ubuntu"
-      host = self.guest_ip_addresses.0
+      host = self.default_ip_address
     }
   }
 }
