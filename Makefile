@@ -1,8 +1,8 @@
-tfvars=${SECRETS_DIR}/terrform.tfvars
-params_yaml=${SECRETS_DIR}/params.yaml
+tfvars := ${SECRETS_DIR}/terrform.tfvars
+params_yaml := ${SECRETS_DIR}/params.yaml
 
 hostname := $(shell yq .hostname $(params_yaml))
-kurl_script := curl https://kurl.sh/latest | sudo bash
+kurl_script ?= curl https://kurl.sh/latest | sudo bash
 
 define TFVARS
 hostname				 = "$(hostname)"
@@ -55,6 +55,9 @@ test: $(tfvars)
 .PHONY: destroy
 destroy: $(tfvars)
 	(cd ${SOURCE_DIR}/terraform && terraform destroy -var-file $(tfvars) --auto-approve)
+
+clean:
+	rm $(tfvars)
 
 .PHONY: encrypt
 encrypt: 
