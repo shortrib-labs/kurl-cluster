@@ -1,8 +1,10 @@
 secrets/*
 !secrets/*.enc
 !secrets/README.md
+!secrets/REDACTED-params.yaml
 work/*
 !work/.gitkeep
+
 # Local .terraform directories
 **/.terraform/*
 
