@@ -31,10 +31,10 @@ it use full.
 
 To use this repostiory in your enviorment, you'll need to create
 a file named `params.yaml` in the `secrets` directory. The content
-of the file is documented in the file [secrets/REDACTED-params.yaml]
-(secrets/READACTED-params.yaml). Copy the redacted version to 
-`params.yaml` and edit as apporpriate to connect to your cluster,
-specify the size of your node, etc.
+of the file is documented in the file 
+[`secrets/REDACTED-params.yaml`](secrets/READACTED-params.yaml). 
+Copy the redacted version to `params.yaml` and edit as apporpriate 
+to connect to your cluster, specify the size of your node, etc.
 
 ## Creating the Cluster
 
